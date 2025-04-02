@@ -29,6 +29,11 @@ class gamesControllers {
             })
         }
     }
+
+    async getAllGames (req, res) {
+        
+    }
+
 }
 
 export default gamesControllers;
