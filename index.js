@@ -1,10 +1,13 @@
 import connection from './src/config/connection.js';
 import express from 'express'
 import gamesRoutes from './src/routes/games.routes.js'
+import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 
 const port = process.env.PORT || 4000;
