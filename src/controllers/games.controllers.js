@@ -3,7 +3,7 @@ import game from "../models/games.models.js";
 class gamesControllers {
     async createGame (req, res) {
         try {
-            const { name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, createdAt } = req.body;
+            const { name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, description,createdAt } = req.body;
 
             const existinGame = await game.findOne({name});
 
@@ -14,7 +14,7 @@ class gamesControllers {
                 })
             }
 
-            const newGame = await game.create( {name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, createdAt} )
+            const newGame = await game.create( {name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, description,createdAt} )
 
             res.status(200).send({
                 message: "Juego creado correctamente",
@@ -74,9 +74,9 @@ class gamesControllers {
             
             const { id } = req.params;
 
-            const {name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, createdAt} = req.body;
+            const {name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, description,createdAt} = req.body;
 
-            const newGame = await game.findByIdAndUpdate( id ,{name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, createdAt}, {new: true});
+            const newGame = await game.findByIdAndUpdate( id ,{name, image, genre, platform, releaseDate, developer, publisher, price, rating, multiplayer, description,createdAt}, {new: true});
 
             res.status(200).send({
                 message: "Juego actualizado correctamente",

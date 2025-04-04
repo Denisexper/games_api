@@ -61,6 +61,7 @@ function CreateGame() {
                     multiplayer: false,
                     description: "",
                 })
+                navigate("/")
             } else {
                 toast.error(data.message || "Error creando juego");
             }
@@ -68,6 +69,8 @@ function CreateGame() {
             console.error(error);
             toast.error("Error en la conexión con el servidor");
         }
+
+        
     };
 
     return (
